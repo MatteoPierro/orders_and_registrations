@@ -7,6 +7,7 @@
 * `OrderCommandHandler` is the right name?
 * `List<Event> changes`?
 * Validate the command `RegisterToConferenceCommand`
+* Introduce different types of seats when placing an order
 * [extra] what about the aggregates publishing their events on the event bus?
 * Rename `OrderRepository` to `Orders`
 
