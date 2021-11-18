@@ -1,4 +1,5 @@
 package io.vocidelcodice.orders_and_registrations;
 
-public class RegisterToConferenceCommand {
-}
+import java.util.UUID;
+
+public record RegisterToConferenceCommand(UUID conferenceId, UUID orderId, Integer numberOfSeats) {}

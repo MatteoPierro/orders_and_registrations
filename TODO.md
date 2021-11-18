@@ -1,5 +1,7 @@
 # TODO
 * `OrderCommandHandler` is the right name?
+* Validate the command `RegisterToConferenceCommand`
+* Change `Order` to class instead od record
 * [extra] what about the aggregates publishing their events on the event bus?
 
 ## IDEAS
