@@ -31,7 +31,8 @@ class OrderCommandHandlerTest {
         Order order = new Order(
                 ORDER_ID,
                 CONFERENCE_ID,
-                NUMBER_OF_SEATS
+                NUMBER_OF_SEATS,
+                List.of(new OrderPlaced(ORDER_ID, CONFERENCE_ID, NUMBER_OF_SEATS))
         );
         verify(orderRepository).save(order);
     }

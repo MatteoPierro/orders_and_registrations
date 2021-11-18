@@ -1,5 +1,11 @@
 package io.vocidelcodice.orders_and_registrations;
 
+import java.util.List;
 import java.util.UUID;
 
-public record Order(UUID orderId, UUID conferenceId, Integer numberOfSeats) { }
+public record Order(UUID orderId, UUID conferenceId, Integer numberOfSeats, List<Event> changes) {
+
+    public Order(UUID orderId, UUID conferenceId, Integer numberOfSeats) {
+        this(orderId, conferenceId, numberOfSeats, List.of(new OrderPlaced(orderId, conferenceId, numberOfSeats)));
+    }
+}
