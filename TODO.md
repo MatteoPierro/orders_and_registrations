@@ -1,10 +1,17 @@
 # TODO
+
+* Implement OrderRepository
+  * Persist the Order
+  * Publish changes
+* What happens if we try to place an order with an existing ID?
 * `OrderCommandHandler` is the right name?
+* `List<Event> changes`?
 * Validate the command `RegisterToConferenceCommand`
-* Change `Order` to class instead od record
 * [extra] what about the aggregates publishing their events on the event bus?
+* Rename `OrderRepository` to `Orders`
 
 ## IDEAS
+
 * start from?
   * the command handler
     * OrderCommandHandler
