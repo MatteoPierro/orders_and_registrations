@@ -5,18 +5,6 @@ import java.util.Objects;
 import java.util.UUID;
 
 public final class Order {
-    private final UUID orderId;
-    private final UUID conferenceId;
-    private final Integer numberOfSeats;
-    private final List<Event> changes;
-
-    public Order(UUID orderId, UUID conferenceId, Integer numberOfSeats, List<Event> changes) {
-        this.orderId = orderId;
-        this.conferenceId = conferenceId;
-        this.numberOfSeats = numberOfSeats;
-        this.changes = changes;
-    }
-
     static Order place(UUID orderId, UUID conferenceId, Integer numberOfSeats) {
         return new Order(
                 orderId,
@@ -24,6 +12,19 @@ public final class Order {
                 numberOfSeats,
                 List.of(new OrderPlaced(orderId, conferenceId, numberOfSeats))
         );
+    }
+
+    private final UUID orderId;
+    private final UUID conferenceId;
+    private final Integer numberOfSeats;
+
+    private final List<Event> changes;
+
+    public Order(UUID orderId, UUID conferenceId, Integer numberOfSeats, List<Event> changes) {
+        this.orderId = orderId;
+        this.conferenceId = conferenceId;
+        this.numberOfSeats = numberOfSeats;
+        this.changes = changes;
     }
 
     @Override
