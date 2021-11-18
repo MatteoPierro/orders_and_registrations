@@ -8,7 +8,8 @@ public class OrderCommandHandler {
     }
 
     public void handle(RegisterToConferenceCommand command) {
-        Order order = new Order(command.orderId(), command.conferenceId(), command.numberOfSeats());
+        Order order = Order.place(command.orderId(), command.conferenceId(), command.numberOfSeats());
         orderRepository.save(order);
     }
+
 }
