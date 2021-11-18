@@ -20,7 +20,7 @@ public final class Order {
 
     private final List<Event> changes;
 
-    public Order(UUID orderId, UUID conferenceId, Integer numberOfSeats, List<Event> changes) {
+    Order(UUID orderId, UUID conferenceId, Integer numberOfSeats, List<Event> changes) {
         this.orderId = orderId;
         this.conferenceId = conferenceId;
         this.numberOfSeats = numberOfSeats;
