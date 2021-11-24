@@ -4,6 +4,7 @@ import io.vocidelcodice.orders_and_registrations.InMemoryOrderRepository.OrderRe
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import static java.util.Collections.emptyList;
@@ -19,7 +20,7 @@ public class InMemoryOrderRepositoryTest {
         UUID orderId = UUID.randomUUID();
         Order order = new Order(orderId, A_CONFERENCE_ID, NUMBER_OF_SEATS, emptyList());
 
-        HashMap<UUID, OrderRecord> records = new HashMap<>();
+        Map<UUID, OrderRecord> records = new HashMap<>();
         OrderRepository orderRepository = new InMemoryOrderRepository(records);
 
         orderRepository.save(order);
