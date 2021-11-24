@@ -19,7 +19,7 @@ class OrderCommandHandlerTest {
     @Mock
     private OrderRepository orderRepository;
 
-    @Test void create_an_order() {
+    @Test void place_an_order() {
         OrderCommandHandler orderCommandHandler = new OrderCommandHandler(orderRepository);
         orderCommandHandler.handle(
                 new RegisterToConferenceCommand(CONFERENCE_ID, ORDER_ID, NUMBER_OF_SEATS)
