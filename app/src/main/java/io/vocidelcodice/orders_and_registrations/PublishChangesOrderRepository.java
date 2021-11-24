@@ -9,6 +9,6 @@ public class PublishChangesOrderRepository implements OrderRepository {
 
     @Override
     public void save(Order order) {
-        eventBus.publish(order.changes().get(0));
+        order.changes().forEach(eventBus::publish);
     }
 }

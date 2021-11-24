@@ -2,11 +2,13 @@ package io.vocidelcodice.orders_and_registrations;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -26,5 +28,19 @@ public class PublishChangesOrderRepositoryTest {
         verify(eventBus).publish(change);
     }
 
-    private record DummyEvent() implements Event { }
+    @Test
+    void publish_changes_sequentially() {
+        Event firstChange = new DummyEvent();
+        Event lastChange = new DummyEvent();
+        Order anOrder = new Order(null, null, null, List.of(firstChange, lastChange));
+
+        OrderRepository orderRepository = new PublishChangesOrderRepository(eventBus);
+        orderRepository.save(anOrder);
+
+        InOrder inOrder = inOrder(eventBus);
+        inOrder.verify(eventBus).publish(firstChange);
+        inOrder.verify(eventBus).publish(lastChange);
+    }
+
+    private class DummyEvent implements Event { }
 }
