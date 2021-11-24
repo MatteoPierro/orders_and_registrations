@@ -1,7 +1,6 @@
 # TODO
 
 * Implement OrderRepository
-  * Persist the Order
   * Publish changes
   * Ensure transactional boundaries (should be within the repo or in the command handler?)
 * Event Handling
