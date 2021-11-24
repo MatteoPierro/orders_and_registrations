@@ -11,14 +11,11 @@ public class InMemoryOrderRepository implements OrderRepository {
         this.orderRecords = orderRecords;
     }
 
-    @Override public void save(Order order) {
-//        orderRecords.put(order.id(), new OrderRecord(order.id, order.conferenceId(), order.seats()));
-
+    @Override
+    public void save(Order order) {
+        orderRecords.put(order.id(), new OrderRecord(order.id(), order.conferenceId(), order.seats()));
     }
 
-    class OrderRecord {
-        public UUID id() {
-            return null;
-        }
+    record OrderRecord(UUID id, UUID conferenceId, Integer seats) {
     }
 }

@@ -53,4 +53,15 @@ public final class Order {
     }
 
 
+    UUID id() {
+        return orderId;
+    }
+
+    UUID conferenceId() {
+        return conferenceId;
+    }
+
+    public Integer seats() {
+        return numberOfSeats;
+    }
 }
