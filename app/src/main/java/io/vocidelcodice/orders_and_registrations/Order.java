@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+import static java.util.List.copyOf;
+
 public final class Order {
     static Order place(UUID orderId, UUID conferenceId, Integer numberOfSeats) {
         return new Order(
@@ -63,5 +65,9 @@ public final class Order {
 
     public Integer seats() {
         return numberOfSeats;
+    }
+
+    public List<Event> changes() {
+        return copyOf(changes);
     }
 }
