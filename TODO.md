@@ -1,11 +1,14 @@
 # TODO
 
-* Implement OrderRepository
-  * Publish changes
-  * Ensure transactional boundaries (should be within the repo or in the command handler?)
+* Implement a fake TransactionalOrderRepository which is composed by:
+  * InMemoryOrderRepository
+  * PublishChangesOrderRepository
 * Event Handling
 * Read Model
 * Acceptance tests from the point of view of a controller sending a command to the command bus
+* Implement a real TransactionalOrderRepository
+  * Ensure transactional boundaries (should be within the repo or in the command handler?)
+  * How to avoid concurrent writes?
 * What happens if we try to place an order with an existing ID?
 * `OrderCommandHandler` is the right name?
 * `List<Event> changes`?
