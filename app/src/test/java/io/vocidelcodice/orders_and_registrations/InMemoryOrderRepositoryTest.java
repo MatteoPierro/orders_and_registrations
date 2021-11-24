@@ -19,12 +19,12 @@ public class InMemoryOrderRepositoryTest {
         UUID orderId = UUID.randomUUID();
         Order order = new Order(orderId, A_CONFERENCE_ID, NUMBER_OF_SEATS, emptyList());
 
-        HashMap<UUID, OrderRecord> orderRecords = new HashMap<>();
-        OrderRepository orderRepository = new InMemoryOrderRepository(orderRecords);
+        HashMap<UUID, OrderRecord> records = new HashMap<>();
+        OrderRepository orderRepository = new InMemoryOrderRepository(records);
 
         orderRepository.save(order);
 
-        OrderRecord orderRecord = orderRecords.get(orderId);
+        OrderRecord orderRecord = records.get(orderId);
         assertThat(orderRecord.id()).isEqualTo(orderId);
         assertThat(orderRecord.conferenceId()).isEqualTo(A_CONFERENCE_ID);
         assertThat(orderRecord.seats()).isEqualTo(NUMBER_OF_SEATS);
