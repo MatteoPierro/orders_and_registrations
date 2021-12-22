@@ -1,8 +1,7 @@
 # TODO
 
-* Implement a fake TransactionalOrderRepository which is composed by:
-  * InMemoryOrderRepository
-  * PublishChangesOrderRepository
+* Publish events/changes from the CommandHandler
+* CommandHandler should be transactional
 * Event Handling
 * Read Model
 * Acceptance tests from the point of view of a controller sending a command to the command bus
