@@ -1,6 +1,7 @@
 # TODO
 
 * CommandHandler should be transactional
+* Implement EventBus considering how to handle a batch of messages in a transaction
 * Event Handling
 * Read Model
 * Acceptance tests from the point of view of a controller sending a command to the command bus
