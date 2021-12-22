@@ -1,6 +1,5 @@
 # TODO
 
-* Publish events/changes from the CommandHandler
 * EventBus publish should accept a list of events
 * CommandHandler should be transactional
 * Event Handling
