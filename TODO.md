@@ -1,6 +1,5 @@
 # TODO
 
-* EventBus publish should accept a list of events
 * CommandHandler should be transactional
 * Event Handling
 * Read Model

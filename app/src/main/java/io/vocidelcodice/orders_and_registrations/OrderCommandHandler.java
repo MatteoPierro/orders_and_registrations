@@ -12,7 +12,7 @@ public class OrderCommandHandler {
     public void handle(RegisterToConferenceCommand command) {
         Order order = Order.place(command.orderId(), command.conferenceId(), command.numberOfSeats());
         orderRepository.save(order);
-        eventBus.publish(order.changes().get(0));
+        eventBus.publish(order.changes());
     }
 
 }

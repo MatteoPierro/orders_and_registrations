@@ -42,6 +42,6 @@ class OrderCommandHandlerTest {
                 new RegisterToConferenceCommand(CONFERENCE_ID, ORDER_ID, NUMBER_OF_SEATS)
         );
 
-        verify(eventBus).publish(new OrderPlaced(ORDER_ID, CONFERENCE_ID, NUMBER_OF_SEATS));
+        verify(eventBus).publish(List.of(new OrderPlaced(ORDER_ID, CONFERENCE_ID, NUMBER_OF_SEATS)));
     }
 }
