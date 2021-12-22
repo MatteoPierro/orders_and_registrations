@@ -18,9 +18,11 @@ class OrderCommandHandlerTest {
 
     @Mock
     private OrderRepository orderRepository;
+    @Mock
+    private EventBus eventBus;
 
     @Test void place_an_order() {
-        OrderCommandHandler orderCommandHandler = new OrderCommandHandler(orderRepository);
+        OrderCommandHandler orderCommandHandler = new OrderCommandHandler(orderRepository, eventBus);
         orderCommandHandler.handle(
                 new RegisterToConferenceCommand(CONFERENCE_ID, ORDER_ID, NUMBER_OF_SEATS)
         );
@@ -32,5 +34,14 @@ class OrderCommandHandlerTest {
                 List.of(new OrderPlaced(ORDER_ID, CONFERENCE_ID, NUMBER_OF_SEATS))
         );
         verify(orderRepository).save(order);
+    }
+
+    @Test void publish_changes_when_place_an_order() {
+        OrderCommandHandler orderCommandHandler = new OrderCommandHandler(orderRepository, eventBus);
+        orderCommandHandler.handle(
+                new RegisterToConferenceCommand(CONFERENCE_ID, ORDER_ID, NUMBER_OF_SEATS)
+        );
+
+        verify(eventBus).publish(new OrderPlaced(ORDER_ID, CONFERENCE_ID, NUMBER_OF_SEATS));
     }
 }
