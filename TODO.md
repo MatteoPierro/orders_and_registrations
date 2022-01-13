@@ -1,20 +1,17 @@
 # TODO
 
-* CommandHandler should be transactional
-* Implement EventBus considering how to handle a batch of messages in a transaction
-* Event Handling
+* Event Handling (via subscribers/event listeners)
 * Read Model
+* Command Bus (to bring the command to the command handler)
 * Acceptance tests from the point of view of a controller sending a command to the command bus
-* Implement a real TransactionalOrderRepository
-  * Ensure transactional boundaries (should be within the repo or in the command handler?)
-  * How to avoid concurrent writes?
+* `CommandHandler` should be transactional
+  * in order to do this in a concrete way, we want to hook in a real database
+* Implement EventBus considering how to handle a batch of messages in a transaction
 * What happens if we try to place an order with an existing ID?
-* `OrderCommandHandler` is the right name?
+* `OrderCommandHandler` is the right name? Is it too generic as a name?
 * `List<Event> changes`?
 * Validate the command `RegisterToConferenceCommand`
 * Introduce different types of seats when placing an order
-* [extra] what about the aggregates publishing their events on the event bus?
-  * or else, in the command handler?
 * Rename `OrderRepository` to `Orders`
 
 ## IDEAS
